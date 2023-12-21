@@ -1,0 +1,7 @@
+# Ignore MacOS
+.idea
+.DS_Store
+
+# Ignore pycache files
+__pycache__
+.pytest_cache
