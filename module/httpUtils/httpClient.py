@@ -37,27 +37,22 @@ class HttpClient(object):
 
         return res
 
-    @staticmethod
-    def _get_request(api_path, header=None, parameter=None, payload=None):
+    def _get_request(self, api_path, header=None, parameter=None, payload=None):
         with closing(requests.get(api_path, headers=header, params=parameter, data=payload, stream=False)) as res:
             return res
 
-    @staticmethod
-    def _post_request(api_path, header=None, parameter=None, payload=None):
+    def _post_request(self, api_path, header=None, parameter=None, payload=None):
         with closing(requests.post(api_path, headers=header, params=parameter, data=payload, stream=False)) as res:
             return res
 
-    @staticmethod
-    def _put_request(api_path, header=None, parameter=None, payload=None):
+    def _put_request(self, api_path, header=None, parameter=None, payload=None):
         with closing(requests.put(api_path, headers=header, params=parameter, data=payload, stream=False)) as res:
             return res
 
-    @staticmethod
-    def _delete_request(api_path, header=None, parameter=None, payload=None):
+    def _delete_request(self, api_path, header=None, parameter=None, payload=None):
         with closing(requests.delete(api_path, headers=header, params=parameter, data=payload, stream=False)) as res:
             return res
 
-    @staticmethod
     def _string_to_json(content):
         res = json.loads(content)
         return res
@@ -66,6 +61,6 @@ class HttpClient(object):
 if __name__ == "__main__":
     print("httpClient.py is running directly")
     hc = HttpClient('https://', 'api.github.com/')
-    r = hc.http_request('events')
+    r = hc.http_request(api_path='events')
     print(r.status_code)
     print(r.json())

@@ -5,3 +5,9 @@
 # Ignore pycache files
 __pycache__
 .pytest_cache
+
+# Ignore test result files
+/test_report.html
+
+# Ignore generated css files
+assets
